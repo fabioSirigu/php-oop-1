@@ -1,4 +1,5 @@
 <?php
+
 class Movie
 {
       public $title;
@@ -6,19 +7,25 @@ class Movie
       public $genre;
       public $type;
 
-      function __construct(string $title, string $duration, string $genre)
+      public function __construct(string $title, string $duration, array $genre)
       {
             $this->title = $title;
             $this->duration = $duration;
             $this->genre = $genre;
+            $this->setType($duration);
       }
 
-      public function longOrShort($duration)
+      public function setType($duration)
       {
-            if ($duration > '120') {
+            if ($duration > 120) {
                   $this->type = 'long film';
             } else {
                   $this->type = 'short film';
             }
+      }
+
+      public function getType()
+      {
+            return $this->type;
       }
 };
